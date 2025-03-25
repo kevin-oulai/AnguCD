@@ -18,3 +18,9 @@
         box-shadow: lightgray 0 0 5px;
     }
 }
+
+.button:disabled{
+    background-color: lightgray;
+    color: white;
+    cursor: not-allowed;
+}
