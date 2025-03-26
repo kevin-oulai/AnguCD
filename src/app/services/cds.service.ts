@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CD } from '../models/cd.model';
-import { Observable } from 'rxjs';
+import { Observable, pipe, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -19,7 +19,16 @@ export class CdsService {
   }
   
   addCD(newCD: CD): Observable<CD>{
-    newCD.id = Math.floor(Math.random() * 1000);
-    return this.http.post<CD>('http://localhost:3001/CD',newCD);
+    return this.getCDs()
+    .pipe(
+      switchMap(cds =>
+        {
+          let lastId = 0;
+          cds.forEach(cd => {lastId = (cd.id > lastId ? cd.id : lastId);});
+          newCD.id = lastId+1;
+          return this.http.post<CD>('http://localhost:3001/CD',newCD);
+        }
+      )
+    )
   }
 }
