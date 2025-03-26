@@ -21,5 +21,5 @@ export class CdsService {
   addCD(newCD: CD): Observable<CD>{
     newCD.id = Math.floor(Math.random() * 1000);
     return this.http.post<CD>('http://localhost:3001/CD',newCD);
-  };
+  }
 }
