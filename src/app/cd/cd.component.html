@@ -5,10 +5,10 @@
     <p>Prix : {{ theCD.price | currency: "EUR" }}</p>
     <p>
         En stock : <span [ngStyle]="{color: 'rgb(0'+theCD.quantite+',0)'}">{{theCD.quantite}}</span> |
-        <button (click)="onAddCD()" class="button">Ajouter une unité</button>
+        <button mat-fab extended (click)="onAddCD()" class="button">Ajouter une unité</button>
     </p>
     <p *ngIf="idcd === undefined">
-        <a routerLink="/cd/{{theCD.id}}" class="button">Voir le detail</a>
+        <button mat-fab extended routerLink="/cd/{{theCD.id}}">Voir le detail</button>
     </p>
     <img [src]="theCD.thumbnail" [alt]="theCD.title">
 </div>

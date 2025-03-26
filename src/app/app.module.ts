@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NewCDComponent } from './new-cd/new-cd.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
